@@ -14,6 +14,8 @@ COPY ./package-lock.json /app
 # RUN \
 #   [ -f package-lock.json ] && npm ci || \
 #   (echo "Lockfile not found." && exit 1)
+RUN npm ci
+# RUN npm ci --only=production
 
 # Debug
 RUN ls -la
