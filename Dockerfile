@@ -4,6 +4,9 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Debug
+RUN ls -la
+
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json*
 RUN \
