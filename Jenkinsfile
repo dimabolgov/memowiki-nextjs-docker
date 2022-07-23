@@ -6,7 +6,7 @@ pipeline {
                 sh 'git --version'
                 echo "Branch: ${env.BRANCH_NAME}"
                 sh 'docker -v'
-                sh 'printenv'
+                // sh 'printenv'
             }
         }
         // stage ('Build API') {
@@ -20,8 +20,8 @@ pipeline {
             steps {
                 sh 'docker build -t react_v1 -f Dockerfile --no-cache .'
                 sh 'docker stop react_v1 || true && docker rm react_v1 || true'
-                sh 'ls -la /var/jenkins_home/workspace/simple-node-js-react-npm-app/build'
-                sh 'ls -la ./'
+                // sh 'ls -la /var/jenkins_home/workspace/simple-node-js-react-npm-app/build'
+                // sh 'ls -la ./'
                 sh 'docker run -d -it -p 3000:3000 --net=vnoveprod_app-net --name=react_v1 react_v1'
             }
         }
