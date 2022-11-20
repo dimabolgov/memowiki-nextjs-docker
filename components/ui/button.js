@@ -5,7 +5,7 @@ import classes from './button.module.css';
 export default function Button(props) {
 
     return (
-        <Link href={props.link}>
+        <Link href={props.link} legacyBehavior>
             <a className={classes.btn}>
                 {props.children}
             </a>
